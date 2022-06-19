@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32611.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSurround", "source\AutoSurround\AutoSurround.csproj", "{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{7FFDCF39-892D-403E-A378-DE90AD9EC6C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution", ".solution", "{9DEBC95E-0986-437A-8543-A6DE3D78335B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		publish.json = publish.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6475D87F-57E9-4798-9A90-4F449A681BE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{A1638927-0C3F-4186-B307-03F5D7647170}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{9FFCFB90-54AE-48AC-8762-418553FCDCC2}"
+	ProjectSection(SolutionItems) = preProject
+		build\PublishToMarketplace.targets = build\PublishToMarketplace.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Debug|x86.ActiveCfg = Debug|x86
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Debug|x86.Build.0 = Debug|x86
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Release|x86.ActiveCfg = Release|x86
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6B66EA7-830A-4AE5-82CE-8B9C12F89666} = {7FFDCF39-892D-403E-A378-DE90AD9EC6C3}
+		{A1638927-0C3F-4186-B307-03F5D7647170} = {6475D87F-57E9-4798-9A90-4F449A681BE8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8CF5D9C-0A54-4D84-B279-E80849674203}
+	EndGlobalSection
+EndGlobal

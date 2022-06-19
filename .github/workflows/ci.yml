@@ -1,0 +1,30 @@
+name: Continuous Integration
+
+on:
+    push:
+        branches:
+            - "**"
+
+        tags-ignore:
+            - "**"
+
+    pull_request:
+        types: [opened, synchronize, edited]
+
+jobs:
+    build:
+        runs-on: windows-2022
+
+        env:
+            Configuration: Release
+            DeployExtension: false
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup MSBuild
+              uses: microsoft/setup-msbuild@v1.0.2
+
+            - name: Build
+              run: msbuild /Restore /t:Rebuild /v:Minimal
