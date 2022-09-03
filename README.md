@@ -1,11 +1,54 @@
 # Auto Surround
 
-Brings VS Code's __Auto Surround_ feature to Visual Studio.
+Brings VS Code's _Auto Surround_ feature to Visual Studio.
 
 ![Example](media/example.gif)
 
-### Quotes
-With text selected, pressing `"`,`'` or `` ` `` will insert that quote character before and after the selection.
+### Supported Languages and File Types
 
-### Brackets
-With text selected, pressing `(`, `[` or `{` will insert that bracket before the selection and the corresponding closing bracket after the selection.
+* Batch files
+* C
+* C#
+* C++
+* Clojure
+* CoffeeScript
+* CSS
+* Dart
+* Docker files
+* F#
+* Go
+* Groovy
+* Handlebars
+* HLSL
+* HTML
+* INI Files
+* Jade
+* Java
+* JavaScript
+* Julia
+* Latex
+* Less
+* Lua
+* Markdown
+* Objective C
+* Objective C++
+* Perl
+* PHP
+* PowerShell
+* Python
+* R
+* Razor
+* ReStructuredText
+* Ruby
+* Rust
+* SCSS
+* ShaderLab
+* Shell scripts
+* SQL
+* Swift
+* TeX
+* TypeScript
+* VB.NET
+* Visual Basic
+* XML
+* YAML

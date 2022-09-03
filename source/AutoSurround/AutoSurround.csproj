@@ -47,6 +47,7 @@
     <DeployExtension>False</DeployExtension>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LanguageConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AutoSurroundCommandHandler.cs" />
   </ItemGroup>
@@ -58,6 +59,7 @@
     <Content Include="Resources\AutoSurround.png">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <EmbeddedResource Include="Languages\vscode.json" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

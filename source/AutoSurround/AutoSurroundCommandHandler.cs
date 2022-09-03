@@ -1,3 +1,5 @@
+#nullable enable 
+
 using Microsoft.VisualStudio.Commanding;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Editor;
@@ -6,9 +8,10 @@ using Microsoft.VisualStudio.Text.Operations;
 using Microsoft.VisualStudio.Utilities;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 
-namespace SurroundWithBrackets;
+namespace AutoSurround;
 
 [Export(typeof(ICommandHandler))]
 [Name(nameof(AutoSurroundCommandHandler))]
@@ -16,22 +19,20 @@ namespace SurroundWithBrackets;
 [TextViewRole(PredefinedTextViewRoles.PrimaryDocument)]
 public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
-    private static readonly Dictionary<char, char> CharacterPairs = new Dictionary<char, char> {
-        { '\'', '\'' },
-        { '"', '"' },
-        { '`', '`' },
-        { '(', ')' },
-        { '{', '}' },
-        { '[', ']' }
-    };
-
-
     private readonly ITextUndoHistoryRegistry _textUndoHistoryRegistry;
+    private readonly ITextDocumentFactoryService _textDocumentFactoryService;
+    private readonly LanguageConfiguration _configuration;
 
 
     [ImportingConstructor]
-    public AutoSurroundCommandHandler(ITextUndoHistoryRegistry textUndoHistoryRegistry) {
+    public AutoSurroundCommandHandler(
+        ITextUndoHistoryRegistry textUndoHistoryRegistry,
+        ITextDocumentFactoryService textDocumentFactoryService,
+        LanguageConfiguration configuration
+    ) {
         _textUndoHistoryRegistry = textUndoHistoryRegistry;
+        _textDocumentFactoryService = textDocumentFactoryService;
+        _configuration = configuration;
     }
 
 
@@ -39,7 +40,7 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
 
     public CommandState GetCommandState(TypeCharCommandArgs args) {
-        if (CharacterPairs.ContainsKey(args.TypedChar)) {
+        if (_configuration.IsPossiblyOpeningChar(args.TypedChar)) {
             return CommandState.Available;
         } else {
             return CommandState.Unavailable;
@@ -49,7 +50,7 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
     public bool ExecuteCommand(TypeCharCommandArgs args, CommandExecutionContext executionContext) {
         if (!args.TextView.Selection.IsEmpty) {
-            if (CharacterPairs.TryGetValue(args.TypedChar, out char closing)) {
+            if (_configuration.TryGetClosingChar(GetFileExtension(args.SubjectBuffer), args.TypedChar, out char closing)) {
                 if (SurroundWith(args.TypedChar, closing, args.TextView)) {
                     return true;
                 }
@@ -57,6 +58,17 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
         }
 
         return false;
+    }
+
+
+    private string GetFileExtension(ITextBuffer buffer) {
+        if (_textDocumentFactoryService.TryGetTextDocument(buffer, out var document)) {
+            if (!string.IsNullOrEmpty(document.FilePath)) {
+                return Path.GetExtension(document.FilePath);
+            }
+        }
+
+        return "";
     }
 
 
