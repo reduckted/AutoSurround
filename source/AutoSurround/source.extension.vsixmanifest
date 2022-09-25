@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="AutoSurround.85c66dba-8fe0-47c9-baa9-5f7f965c2775" Version="1.1.0" Language="en-US" Publisher="reduckted" />
+        <Identity Id="AutoSurround.85c66dba-8fe0-47c9-baa9-5f7f965c2775" Version="1.2.0" Language="en-US" Publisher="reduckted" />
         <DisplayName>Auto Surround</DisplayName>
         <Description xml:space="preserve">Brings VS Code's "Auto Surround" feature to Visual Studio.</Description>
         <MoreInfo>https://github.com/reduckted/AutoSurround</MoreInfo>
