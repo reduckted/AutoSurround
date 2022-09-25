@@ -6,49 +6,58 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 
 ### Supported Languages and File Types
 
-* Batch files
+* Batch
 * C
 * C#
 * C++
 * Clojure
 * CoffeeScript
 * CSS
+* CUDA C++
 * Dart
-* Docker files
+* Diff
+* Docker
 * F#
 * Go
 * Groovy
 * Handlebars
 * HLSL
 * HTML
-* INI Files
-* Jade
+* Ini
 * Java
 * JavaScript
+* JavaScript React
+* JSON
+* JSON with Comments
 * Julia
-* Latex
+* LaTeX
 * Less
 * Lua
+* Makefile
 * Markdown
 * Objective C
 * Objective C++
 * Perl
+* Perl 6
 * PHP
 * PowerShell
+* Properties
+* Pug
 * Python
 * R
 * Razor
-* ReStructuredText
+* reStructuredText
 * Ruby
 * Rust
 * SCSS
 * ShaderLab
-* Shell scripts
+* Shell Script
 * SQL
 * Swift
 * TeX
 * TypeScript
-* VB.NET
+* TypeScript React
 * Visual Basic
 * XML
+* XSL
 * YAML

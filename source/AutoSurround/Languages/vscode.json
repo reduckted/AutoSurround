@@ -125,6 +125,15 @@
         ]
     },
     {
+        "id": "diff",
+        "extensions": [".diff", ".patch", ".rej"],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" }
+        ]
+    },
+    {
         "id": "dockerfile",
         "extensions": [".dockerfile", ".containerfile"],
         "surroundingPairs": [
@@ -294,6 +303,52 @@
         ]
     },
     {
+        "id": "json",
+        "extensions": [
+            ".json",
+            ".bowerrc",
+            ".jscsrc",
+            ".webmanifest",
+            ".js.map",
+            ".css.map",
+            ".ts.map",
+            ".har",
+            ".jslintrc",
+            ".jsonld",
+            ".geojson",
+            ".ipynb"
+        ],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "`", "close": "`" }
+        ]
+    },
+    {
+        "id": "jsonc",
+        "extensions": [
+            ".jsonc",
+            ".eslintrc",
+            ".eslintrc.json",
+            ".jsfmtrc",
+            ".jshintrc",
+            ".swcrc",
+            ".hintrc",
+            ".babelrc"
+        ],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "`", "close": "`" }
+        ]
+    },
+    {
         "id": "julia",
         "extensions": [".jl"],
         "surroundingPairs": [
@@ -350,6 +405,14 @@
             { "open": "(", "close": ")" },
             { "open": "\"", "close": "\"" },
             { "open": "'", "close": "'" }
+        ]
+    },
+    {
+        "id": "makefile",
+        "extensions": [".mak", ".mk"],
+        "surroundingPairs": [
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" }
         ]
     },
     {
@@ -736,6 +799,16 @@
             { "open": "[", "close": "]" },
             { "open": "(", "close": ")" },
             { "open": "<", "close": ">" }
+        ]
+    },
+    {
+        "id": "xsl",
+        "extensions": [".xsl", ".xslt"],
+        "surroundingPairs": [
+            { "open": "<", "close": ">" },
+            { "open": "{", "close": "}" },
+            { "open": "(", "close": ")" },
+            { "open": "[", "close": "]" }
         ]
     },
     {
