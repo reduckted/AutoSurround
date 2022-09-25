@@ -9,5 +9,11 @@
     "publisher": "reduckted",
     "private": false,
     "qna": true,
-    "repo": "https://github.com/reduckted/AutoSurround"
+    "repo": "https://github.com/reduckted/AutoSurround",
+    "assetFiles": [
+        {
+            "pathOnDisk": "media/example.gif",
+            "targetPath": "media/example.gif"
+        }
+    ]
 }
