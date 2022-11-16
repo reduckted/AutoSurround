@@ -20,6 +20,7 @@ public class LanguageConfiguration {
         _surroundingPairsByFileExtension = new Dictionary<string, Dictionary<char, char>>(StringComparer.OrdinalIgnoreCase);
         _openingChars = new HashSet<char>();
         LoadConfiguration("vscode");
+        LoadConfiguration("liquid");
     }
 
 

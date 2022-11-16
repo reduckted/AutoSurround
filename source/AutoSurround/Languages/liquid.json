@@ -1,0 +1,28 @@
+[
+    {
+        "id": "liquid",
+        "extensions": [ ".liquid" ],
+        "surroundingPairs": [
+            {
+                "open": "'",
+                "close": "'"
+            },
+            {
+                "open": "\"",
+                "close": "\""
+            },
+            {
+                "open": "<",
+                "close": ">"
+            },
+            {
+                "open": "{",
+                "close": "}"
+            },
+            {
+                "open": "%",
+                "close": "%"
+            }
+        ]
+    }
+]

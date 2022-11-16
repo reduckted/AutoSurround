@@ -32,6 +32,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Julia
 * LaTeX
 * Less
+* Liquid
 * Lua
 * Makefile
 * Markdown
