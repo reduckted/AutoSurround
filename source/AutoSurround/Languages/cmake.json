@@ -1,0 +1,29 @@
+[
+    {
+        "id": "cmake",
+        "extensions": [ ".cmake" ],
+        "filenames": [ "CMakeLists.txt" ],
+        "surroundingPairs": [
+            {
+                "open": "\"",
+                "close": "\""
+            },
+            {
+                "open": "(",
+                "close": ")"
+            },
+            {
+                "open": "{",
+                "close": "}"
+            },
+            {
+                "open": "[",
+                "close": "]"
+            },
+            {
+                "open": "<",
+                "close": ">"
+            }
+        ]
+    }
+]

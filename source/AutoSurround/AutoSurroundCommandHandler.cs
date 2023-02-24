@@ -50,7 +50,7 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
     public bool ExecuteCommand(TypeCharCommandArgs args, CommandExecutionContext executionContext) {
         if (!args.TextView.Selection.IsEmpty) {
-            if (_configuration.TryGetClosingChar(GetFileExtension(args.SubjectBuffer), args.TypedChar, out char closing)) {
+            if (_configuration.TryGetClosingChar(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing)) {
                 if (SurroundWith(args.TypedChar, closing, args.TextView)) {
                     return true;
                 }
@@ -61,10 +61,10 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
     }
 
 
-    private string GetFileExtension(ITextBuffer buffer) {
+    private string GetFileName(ITextBuffer buffer) {
         if (_textDocumentFactoryService.TryGetTextDocument(buffer, out var document)) {
             if (!string.IsNullOrEmpty(document.FilePath)) {
-                return Path.GetExtension(document.FilePath);
+                return Path.GetFileName(document.FilePath);
             }
         }
 
@@ -139,7 +139,7 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
                     }
 
                     // Keep the insertion point attached to the
-                    // the same point that it curently is.
+                    // the same point that it currently is.
                     if (selection.InsertionPoint == selection.AnchorPoint) {
                         insertionPoint = anchorPoint;
 

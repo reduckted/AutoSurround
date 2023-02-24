@@ -13,14 +13,17 @@ namespace AutoSurround;
 public class LanguageConfiguration {
 
     private readonly Dictionary<string, Dictionary<char, char>> _surroundingPairsByFileExtension;
+    private readonly Dictionary<string, Dictionary<char, char>> _surroundingPairsByFileName;
     private readonly HashSet<char> _openingChars;
 
 
     public LanguageConfiguration() {
         _surroundingPairsByFileExtension = new Dictionary<string, Dictionary<char, char>>(StringComparer.OrdinalIgnoreCase);
+        _surroundingPairsByFileName = new Dictionary<string, Dictionary<char, char>>(StringComparer.OrdinalIgnoreCase);
         _openingChars = new HashSet<char>();
         LoadConfiguration("vscode");
         LoadConfiguration("liquid");
+        LoadConfiguration("cmake");
     }
 
 
@@ -50,6 +53,10 @@ public class LanguageConfiguration {
             foreach (string extension in entry.Extensions) {
                 _surroundingPairsByFileExtension.Add(extension, pairs);
             }
+
+            foreach (string fileName in entry.FileNames) {
+                _surroundingPairsByFileName.Add(fileName, pairs);
+            }
         }
     }
 
@@ -59,8 +66,12 @@ public class LanguageConfiguration {
     }
 
 
-    public bool TryGetClosingChar(string fileExtension, char opening, out char closing) {
-        if (_surroundingPairsByFileExtension.TryGetValue(fileExtension, out var pairs)) {
+    public bool TryGetClosingChar(string fileName, char opening, out char closing) {
+        if (_surroundingPairsByFileExtension.TryGetValue(Path.GetExtension(fileName), out var pairs)) {
+            return pairs.TryGetValue(opening, out closing);
+        }
+
+        if (_surroundingPairsByFileName.TryGetValue(fileName, out pairs)) {
             return pairs.TryGetValue(opening, out closing);
         }
 
@@ -72,6 +83,9 @@ public class LanguageConfiguration {
     private class JsonEntry {
 
         public IEnumerable<string> Extensions { get; set; } = Enumerable.Empty<string>();
+
+
+        public IEnumerable<string> FileNames { get; set; } = Enumerable.Empty<string>();
 
 
         public IEnumerable<JsonSurroundingPair> SurroundingPairs { get; set; } = Enumerable.Empty<JsonSurroundingPair>();

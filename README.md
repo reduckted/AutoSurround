@@ -11,6 +11,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * C#
 * C++
 * Clojure
+* CMake
 * CoffeeScript
 * CSS
 * CUDA C++

@@ -61,6 +61,7 @@
     </Content>
     <EmbeddedResource Include="Languages\vscode.json" />
     <EmbeddedResource Include="Languages\liquid.json" />
+    <EmbeddedResource Include="Languages\cmake.json" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
