@@ -14,10 +14,10 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3.3.0
 
             - name: Setup MSBuild
-              uses: microsoft/setup-msbuild@v1.0.2
+              uses: microsoft/setup-msbuild@v1.3.1
 
             - name: Publish
               run: msbuild source/AutoSurround/AutoSurround.csproj /Restore /t:PublishToMarketplace /v:Minimal /p:PersonalAccessToken=${{ secrets.PUBLISHER_TOKEN }}
