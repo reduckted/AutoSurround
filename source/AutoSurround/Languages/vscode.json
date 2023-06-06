@@ -1,4 +1,4 @@
-// Generated from microsoft/vscode@2ba046482d3dd2b8a8395eeac41e26f4fb642289
+// Generated from microsoft/vscode@31a732a0862f8f6f2c3c1b040118b73bae419a73
 [
     {
         "id": "bat",
@@ -247,9 +247,9 @@
     {
         "id": "properties",
         "extensions": [
+            ".conf",
             ".properties",
             ".cfg",
-            ".conf",
             ".directory",
             ".gitattributes",
             ".gitconfig",
@@ -316,7 +316,8 @@
             ".jslintrc",
             ".jsonld",
             ".geojson",
-            ".ipynb"
+            ".ipynb",
+            ".vuerc"
         ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
@@ -339,6 +340,18 @@
             ".hintrc",
             ".babelrc"
         ],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "`", "close": "`" }
+        ]
+    },
+    {
+        "id": "jsonl",
+        "extensions": [".jsonl"],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
@@ -548,6 +561,7 @@
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
             { "open": "(", "close": ")" },
+            { "open": "`", "close": "`" },
             { "open": "\"", "close": "\"" },
             { "open": "'", "close": "'" }
         ]

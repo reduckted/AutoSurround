@@ -27,8 +27,9 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Ini
 * Java
 * JavaScript
-* JavaScript React
+* JavaScript JSX
 * JSON
+* JSON Lines
 * JSON with Comments
 * Julia
 * LaTeX
@@ -58,7 +59,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Swift
 * TeX
 * TypeScript
-* TypeScript React
+* TypeScript JSX
 * Visual Basic
 * XML
 * XSL
