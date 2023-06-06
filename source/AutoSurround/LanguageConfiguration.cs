@@ -24,6 +24,7 @@ public class LanguageConfiguration {
         LoadConfiguration("vscode");
         LoadConfiguration("liquid");
         LoadConfiguration("cmake");
+        LoadConfiguration("vbhtml");
     }
 
 

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "vbhtml",
+        "extensions": [ ".vbhtml" ],
+        "surroundingPairs": [
+            {
+                "open": "'",
+                "close": "'"
+            },
+            {
+                "open": "\"",
+                "close": "\""
+            },
+            {
+                "open": "<",
+                "close": ">"
+            }
+        ]
+    }
+]
