@@ -25,6 +25,7 @@ public class LanguageConfiguration {
         LoadConfiguration("liquid");
         LoadConfiguration("cmake");
         LoadConfiguration("vbhtml");
+        LoadConfiguration("gherkin");
     }
 
 

@@ -19,6 +19,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Diff
 * Docker
 * F#
+* Gherkin
 * Go
 * Groovy
 * Handlebars

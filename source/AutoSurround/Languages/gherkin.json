@@ -1,0 +1,32 @@
+[
+    {
+        "id": "gherkin",
+        "extensions": [ ".feature" ],
+        "surroundingPairs": [
+            {
+                "open": "\"",
+                "close": "\""
+            },
+            {
+                "open": "'",
+                "close": "'"
+            },
+            {
+                "open": "(",
+                "close": ")"
+            },
+            {
+                "open": "{",
+                "close": "}"
+            },
+            {
+                "open": "[",
+                "close": "]"
+            },
+            {
+                "open": "<",
+                "close": ">"
+            }
+        ]
+    }
+]
