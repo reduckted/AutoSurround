@@ -63,6 +63,7 @@
     <EmbeddedResource Include="Languages\liquid.json" />
     <EmbeddedResource Include="Languages\cmake.json" />
     <EmbeddedResource Include="Languages\vbhtml.json" />
+    <EmbeddedResource Include="Languages\gherkin.json" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
