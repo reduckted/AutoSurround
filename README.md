@@ -12,6 +12,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * C++
 * Clojure
 * CMake
+* Code Snippets
 * CoffeeScript
 * CSS
 * CUDA C++
@@ -42,13 +43,13 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Objective C
 * Objective C++
 * Perl
-* Perl 6
 * PHP
 * PowerShell
 * Properties
 * Pug
 * Python
 * R
+* Raku
 * Razor
 * reStructuredText
 * Ruby

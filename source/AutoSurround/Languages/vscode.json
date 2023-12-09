@@ -1,4 +1,4 @@
-// Generated from microsoft/vscode@31a732a0862f8f6f2c3c1b040118b73bae419a73
+// Generated from microsoft/vscode@b8ea8d1083e986110231bbf19a20b121b24d6f71
 [
     {
         "id": "bat",
@@ -254,7 +254,8 @@
             ".gitattributes",
             ".gitconfig",
             ".gitmodules",
-            ".editorconfig"
+            ".editorconfig",
+            ".repo"
         ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
@@ -352,6 +353,18 @@
     {
         "id": "jsonl",
         "extensions": [".jsonl"],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "`", "close": "`" }
+        ]
+    },
+    {
+        "id": "snippets",
+        "extensions": [".code-snippets"],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
@@ -487,8 +500,17 @@
         ]
     },
     {
-        "id": "perl6",
-        "extensions": [".p6", ".pl6", ".pm6", ".nqp"],
+        "id": "raku",
+        "extensions": [
+            ".raku",
+            ".rakumod",
+            ".rakutest",
+            ".rakudoc",
+            ".nqp",
+            ".p6",
+            ".pl6",
+            ".pm6"
+        ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
@@ -827,7 +849,16 @@
     },
     {
         "id": "yaml",
-        "extensions": [".yml", ".eyaml", ".eyml", ".yaml", ".cff"],
+        "extensions": [
+            ".yml",
+            ".eyaml",
+            ".eyml",
+            ".yaml",
+            ".cff",
+            ".yaml-tmlanguage",
+            ".yaml-tmpreferences",
+            ".yaml-tmtheme"
+        ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
