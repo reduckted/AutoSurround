@@ -63,6 +63,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * TypeScript
 * TypeScript JSX
 * Visual Basic
+* Vue
 * XML
 * XSL
 * YAML

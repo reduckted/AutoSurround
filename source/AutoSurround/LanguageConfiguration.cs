@@ -26,6 +26,7 @@ public class LanguageConfiguration {
         LoadConfiguration("cmake");
         LoadConfiguration("vbhtml");
         LoadConfiguration("gherkin");
+        LoadConfiguration("vue");
     }
 
 

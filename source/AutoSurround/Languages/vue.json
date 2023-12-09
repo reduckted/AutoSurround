@@ -1,0 +1,32 @@
+[
+    {
+        "id": "vue",
+        "extensions": [ ".vue" ],
+        "surroundingPairs": [
+            {
+                "open": "[",
+                "close": "]"
+            },
+            {
+                "open": "(",
+                "close": ")"
+            },
+            {
+                "open": "{",
+                "close": "}"
+            },
+            {
+                "open": "\"",
+                "close": "\""
+            },
+            {
+                "open": "'",
+                "close": "'"
+            },
+            {
+                "open": "`",
+                "close": "`"
+            }
+        ]
+    }
+]
