@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Text.Editor.Commanding.Commands;
 using Microsoft.VisualStudio.Text.Operations;
 using Microsoft.VisualStudio.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
@@ -49,9 +50,45 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
 
     public bool ExecuteCommand(TypeCharCommandArgs args, CommandExecutionContext executionContext) {
-        if (!args.TextView.Selection.IsEmpty) {
-            if (_configuration.TryGetClosingChar(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing)) {
-                if (SurroundWith(args.TypedChar, closing, args.TextView)) {
+        if (args.TypedChar == '<') {
+            if (!args.TextView.Selection.IsEmpty) {
+                // If text is selected and the typed character is '<', surround with '<' and '>'
+                if (SurroundWith('<', '>', args.TextView)) {
+                    return true;
+                }
+            } else {
+                // If no text is selected and the typed character is '<', just insert '<'
+                ITextUndoHistory history = _textUndoHistoryRegistry.GetHistory(args.TextView.TextBuffer);
+                using (ITextUndoTransaction transaction = history.CreateTransaction($"<Insert")) {
+                    int position = args.TextView.Selection.ActivePoint.Position;
+                    args.TextView.TextBuffer.Insert(position, "<");
+                    transaction.Complete();
+                }
+                return true;
+            }
+        } else {
+            // For other characters, handle as before
+            if (!args.TextView.Selection.IsEmpty) {
+                if (_configuration.TryGetClosingChar(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing)) {
+                    if (SurroundWith(args.TypedChar, closing, args.TextView)) {
+                        return true;
+                    }
+                }
+            } else {
+                // If no text is selected, insert the opening and closing characters
+                if (_configuration.TryGetClosingChar(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing)) {
+                    ITextUndoHistory history = _textUndoHistoryRegistry.GetHistory(args.TextView.TextBuffer);
+                    using (ITextUndoTransaction transaction = history.CreateTransaction($"{args.TypedChar}Auto Surround{closing}")) {
+                        int position = args.TextView.Selection.ActivePoint.Position;
+                        args.TextView.TextBuffer.Insert(position, args.TypedChar.ToString());
+                        args.TextView.TextBuffer.Insert(position + 1, closing.ToString());
+
+                        // Move the caret between the opening and closing characters
+                        SnapshotPoint caretPosition = new SnapshotPoint(args.TextView.TextBuffer.CurrentSnapshot, position + 1);
+                        args.TextView.Caret.MoveTo(caretPosition);
+
+                        transaction.Complete();
+                    }
                     return true;
                 }
             }
@@ -159,5 +196,4 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
         return true;
     }
-
 }
