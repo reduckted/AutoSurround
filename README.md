@@ -6,6 +6,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 
 ### Supported Languages and File Types
 
+* Agent
 * Batch
 * C
 * C#
@@ -19,6 +20,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Dart
 * Diff
 * Docker
+* Dotenv
 * F#
 * Gherkin
 * Go
@@ -26,7 +28,9 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Handlebars
 * HLSL
 * HTML
+* Ignore
 * Ini
+* Instructions
 * Java
 * JavaScript
 * JavaScript JSX
@@ -45,6 +49,7 @@ Brings VS Code's _Auto Surround_ feature to Visual Studio.
 * Perl
 * PHP
 * PowerShell
+* Prompt
 * Properties
 * Pug
 * Python
