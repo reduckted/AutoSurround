@@ -1,0 +1,30 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/ci.yml" />
+    <File Path=".github/workflows/publish.yml" />
+  </Folder>
+  <Folder Name="/.solution/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="extract-vscode-languages.ps1" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="publish.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/build/">
+    <File Path="build/PublishToMarketplace.targets" />
+  </Folder>
+  <Folder Name="/source/">
+    <Project Path="source/AutoSurround/AutoSurround.csproj">
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+  </Folder>
+</Solution>
