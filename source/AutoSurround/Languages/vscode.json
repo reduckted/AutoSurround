@@ -1,4 +1,4 @@
-// Generated from microsoft/vscode@b8ea8d1083e986110231bbf19a20b121b24d6f71
+// Generated from microsoft/vscode@75a37ed4801e419278dead7101c4a82c80eb8e1e
 [
     {
         "id": "bat",
@@ -49,9 +49,13 @@
         "id": "cpp",
         "extensions": [
             ".cpp",
+            ".cppm",
             ".cc",
+            ".ccm",
             ".cxx",
+            ".cxxm",
             ".c++",
+            ".c++m",
             ".hpp",
             ".hh",
             ".hxx",
@@ -145,6 +149,17 @@
         ]
     },
     {
+        "id": "dotenv",
+        "extensions": [".env"],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "\"", "close": "\"" },
+            { "open": "'", "close": "'" }
+        ]
+    },
+    {
         "id": "fsharp",
         "extensions": [".fs", ".fsi", ".fsx", ".fsscript"],
         "surroundingPairs": [
@@ -153,6 +168,22 @@
             { "open": "(", "close": ")" },
             { "open": "\"", "close": "\"" },
             { "open": "'", "close": "'" }
+        ]
+    },
+    {
+        "id": "ignore",
+        "extensions": [
+            ".gitignore_global",
+            ".gitignore",
+            ".git-blame-ignore-revs"
+        ],
+        "surroundingPairs": [
+            { "open": "{", "close": "}" },
+            { "open": "[", "close": "]" },
+            { "open": "(", "close": ")" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "`", "close": "`" }
         ]
     },
     {
@@ -339,7 +370,8 @@
             ".jshintrc",
             ".swcrc",
             ".hintrc",
-            ".babelrc"
+            ".babelrc",
+            ".toolset.jsonc"
         ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
@@ -352,7 +384,7 @@
     },
     {
         "id": "jsonl",
-        "extensions": [".jsonl"],
+        "extensions": [".jsonl", ".ndjson"],
         "surroundingPairs": [
             { "open": "{", "close": "}" },
             { "open": "[", "close": "]" },
@@ -462,7 +494,10 @@
             { "open": "*", "close": "*" },
             { "open": "{", "close": "}" },
             { "open": "'", "close": "'" },
-            { "open": "\"", "close": "\"" }
+            { "open": "\"", "close": "\"" },
+            { "open": "<", "close": ">" },
+            { "open": "~", "close": "~" },
+            { "open": "$", "close": "$" }
         ]
     },
     {
@@ -541,6 +576,57 @@
             { "open": "(", "close": ")" },
             { "open": "\"", "close": "\"" },
             { "open": "'", "close": "'" }
+        ]
+    },
+    {
+        "id": "prompt",
+        "extensions": [".prompt.md"],
+        "surroundingPairs": [
+            { "open": "(", "close": ")" },
+            { "open": "[", "close": "]" },
+            { "open": "`", "close": "`" },
+            { "open": "_", "close": "_" },
+            { "open": "*", "close": "*" },
+            { "open": "{", "close": "}" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "<", "close": ">" },
+            { "open": "~", "close": "~" },
+            { "open": "$", "close": "$" }
+        ]
+    },
+    {
+        "id": "instructions",
+        "extensions": [".instructions.md", "copilot-instructions.md"],
+        "surroundingPairs": [
+            { "open": "(", "close": ")" },
+            { "open": "[", "close": "]" },
+            { "open": "`", "close": "`" },
+            { "open": "_", "close": "_" },
+            { "open": "*", "close": "*" },
+            { "open": "{", "close": "}" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "<", "close": ">" },
+            { "open": "~", "close": "~" },
+            { "open": "$", "close": "$" }
+        ]
+    },
+    {
+        "id": "chatagent",
+        "extensions": [".agent.md", ".chatmode.md"],
+        "surroundingPairs": [
+            { "open": "(", "close": ")" },
+            { "open": "[", "close": "]" },
+            { "open": "`", "close": "`" },
+            { "open": "_", "close": "_" },
+            { "open": "*", "close": "*" },
+            { "open": "{", "close": "}" },
+            { "open": "'", "close": "'" },
+            { "open": "\"", "close": "\"" },
+            { "open": "<", "close": ">" },
+            { "open": "~", "close": "~" },
+            { "open": "$", "close": "$" }
         ]
     },
     {
@@ -673,6 +759,7 @@
             ".bash_profile",
             ".bash_login",
             ".ebuild",
+            ".eclass",
             ".profile",
             ".bash_logout",
             ".xprofile",
@@ -806,6 +893,7 @@
             ".rng",
             ".rss",
             ".shproj",
+            ".slnx",
             ".storyboard",
             ".svg",
             ".targets",
@@ -850,14 +938,15 @@
     {
         "id": "yaml",
         "extensions": [
+            ".yaml",
             ".yml",
             ".eyaml",
             ".eyml",
-            ".yaml",
             ".cff",
             ".yaml-tmlanguage",
             ".yaml-tmpreferences",
-            ".yaml-tmtheme"
+            ".yaml-tmtheme",
+            ".winget"
         ],
         "surroundingPairs": [
             { "open": "{", "close": "}" },

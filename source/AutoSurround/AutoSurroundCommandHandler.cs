@@ -2,10 +2,12 @@
 
 using Microsoft.VisualStudio.Commanding;
 using Microsoft.VisualStudio.Text;
+using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Text.Editor.Commanding.Commands;
 using Microsoft.VisualStudio.Text.Operations;
 using Microsoft.VisualStudio.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
@@ -21,6 +23,7 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
     private readonly ITextUndoHistoryRegistry _textUndoHistoryRegistry;
     private readonly ITextDocumentFactoryService _textDocumentFactoryService;
+    private readonly IViewClassifierAggregatorService _classifierAggregator;
     private readonly LanguageConfiguration _configuration;
 
 
@@ -28,10 +31,12 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
     public AutoSurroundCommandHandler(
         ITextUndoHistoryRegistry textUndoHistoryRegistry,
         ITextDocumentFactoryService textDocumentFactoryService,
+        IViewClassifierAggregatorService classifierAggregator,
         LanguageConfiguration configuration
     ) {
         _textUndoHistoryRegistry = textUndoHistoryRegistry;
         _textDocumentFactoryService = textDocumentFactoryService;
+        _classifierAggregator = classifierAggregator;
         _configuration = configuration;
     }
 
@@ -50,7 +55,18 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
 
     public bool ExecuteCommand(TypeCharCommandArgs args, CommandExecutionContext executionContext) {
         if (!args.TextView.Selection.IsEmpty) {
-            if (_configuration.TryGetClosingChar(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing)) {
+            bool surround;
+
+
+            surround = _configuration.TryGetClosingCharForFile(GetFileName(args.SubjectBuffer), args.TypedChar, out char closing);
+
+            if (!surround) {
+                if (IsWithinComment(args.TextView.Selection)) {
+                    surround = _configuration.TryGetClosingCharForComment(args.TypedChar, out closing);
+                }
+            }
+
+            if (surround) {
                 if (SurroundWith(args.TypedChar, closing, args.TextView)) {
                     return true;
                 }
@@ -69,6 +85,24 @@ public class AutoSurroundCommandHandler : ICommandHandler<TypeCharCommandArgs> {
         }
 
         return "";
+    }
+
+
+    private bool IsWithinComment(ITextSelection selection) {
+        IClassifier classifier;
+
+
+        classifier = _classifierAggregator.GetClassifier(selection.TextView);
+
+        foreach (SnapshotSpan span in selection.SelectedSpans) {
+            foreach (ClassificationSpan c in classifier.GetClassificationSpans(span)) {
+                if (c.ClassificationType.Classification.IndexOf("comment", StringComparison.OrdinalIgnoreCase) >= 0) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 

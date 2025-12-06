@@ -33,7 +33,7 @@ foreach ($packageFileName in $packageFileNames) {
                     # everything to objects with "open" and "close" properties.
                     foreach ($pair in $configuration.surroundingPairs) {
                         if ($pair -is [array]) {
-                            $pairs += @{ open = $pair[0]; close = $pair[1] }
+                            $pairs += [ordered] @{ open = $pair[0]; close = $pair[1] }
 
                         } elseif (($pair | Get-Member "open") -and ($pair | Get-Member "close")) {
                             $pairs += $pair
@@ -51,7 +51,7 @@ foreach ($packageFileName in $packageFileNames) {
                             # Auto-closing pairs can be more than just one character. Since we are using
                             # them as surrounding pairs, we only want the ones that are single characters.
                             if (($open.Length -eq 1) -and ($close.Length -eq 1)) {
-                                $pairs += @{ open = $open; close = $close }
+                                $pairs += [ordered] @{ open = $open; close = $close }
                             }
                         }
                     }
@@ -65,7 +65,7 @@ foreach ($packageFileName in $packageFileNames) {
                         # Brackets can be more than just one character. Since we are using them
                         # as surrounding pairs, we only want the ones that are single characters.
                         if (($open.Length -eq 1) -and ($close.Length -eq 1)) {
-                            $pairs += @{ open = $open; close = $close }
+                            $pairs += [ordered] @{ open = $open; close = $close }
                         }
                     }
 
