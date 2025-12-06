@@ -14,6 +14,7 @@ public class LanguageConfiguration {
 
     private readonly Dictionary<string, Dictionary<char, char>> _surroundingPairsByFileExtension;
     private readonly Dictionary<string, Dictionary<char, char>> _surroundingPairsByFileName;
+    private readonly Dictionary<char, char> _surroundingPairsForComments;
     private readonly HashSet<char> _openingChars;
 
 
@@ -27,6 +28,22 @@ public class LanguageConfiguration {
         LoadConfiguration("vbhtml");
         LoadConfiguration("gherkin");
         LoadConfiguration("vue");
+
+        // Within comments, we can use some surrounding pairs that
+        // might not otherwise be suitable because of the language.
+        _surroundingPairsForComments = new Dictionary<char, char> {
+            { '\'', '\'' },
+            { '"', '"' },
+            { '(', ')' },
+            { '[', ']' },
+            // These are used for adding emphasis
+            // via the "Emphasize" extension.
+            { '`', '`' },
+            { '_', '_' },
+            { '*', '*' }
+        };
+
+        _openingChars.UnionWith(_surroundingPairsForComments.Keys);
     }
 
 
@@ -69,7 +86,7 @@ public class LanguageConfiguration {
     }
 
 
-    public bool TryGetClosingChar(string fileName, char opening, out char closing) {
+    public bool TryGetClosingCharForFile(string fileName, char opening, out char closing) {
         if (_surroundingPairsByFileExtension.TryGetValue(Path.GetExtension(fileName), out var pairs)) {
             return pairs.TryGetValue(opening, out closing);
         }
@@ -80,6 +97,11 @@ public class LanguageConfiguration {
 
         closing = default;
         return false;
+    }
+
+
+    public bool TryGetClosingCharForComment(char opening, out char closing) {
+        return _surroundingPairsForComments.TryGetValue(opening, out closing);
     }
 
 
