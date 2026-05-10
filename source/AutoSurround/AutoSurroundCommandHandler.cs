@@ -1,5 +1,3 @@
-#nullable enable 
-
 using Microsoft.VisualStudio.Commanding;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;

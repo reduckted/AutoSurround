@@ -1,23 +1,23 @@
 name: Publish Extension
 
 on:
-    release:
-        types: [published]
+  release:
+    types: [published]
 
 jobs:
-    publish:
-        runs-on: windows-2022
+  publish:
+    runs-on: windows-2022
 
-        env:
-            Configuration: Release
-            DeployExtension: false
+    env:
+      Configuration: Release
+      DeployExtension: false
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3.3.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
 
-            - name: Setup MSBuild
-              uses: microsoft/setup-msbuild@v1.3.1
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.3.1
 
-            - name: Publish
-              run: msbuild source/AutoSurround/AutoSurround.csproj /Restore /t:PublishToMarketplace /v:Minimal /p:PersonalAccessToken=${{ secrets.PUBLISHER_TOKEN }}
+      - name: Publish
+        run: msbuild source/AutoSurround/AutoSurround.csproj /Restore /t:PublishToMarketplace /v:Minimal /p:PersonalAccessToken=${{ secrets.PUBLISHER_TOKEN }}
