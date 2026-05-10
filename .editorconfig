@@ -26,6 +26,9 @@ dotnet_style_prefer_compound_assignment = true:suggestion
 [*.{csproj,props}]
 indent_size = 2
 
+[*.yml]
+indent_size = 2
+
 [*.cs]
 
 #### .NET Coding Conventions ####
