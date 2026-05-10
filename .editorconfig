@@ -23,6 +23,9 @@ dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_compound_assignment = true:suggestion
 
+[*.{csproj,props}]
+indent_size = 2
+
 [*.cs]
 
 #### .NET Coding Conventions ####

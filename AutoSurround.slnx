@@ -25,6 +25,7 @@
   <Folder Name="/source/">
     <Project Path="source/AutoSurround/AutoSurround.csproj" Id="e6b66ea7-830a-4ae5-82ce-8b9c12f89666">
       <Platform Solution="*|x86" Project="x86" />
+      <Deploy Solution="Debug|Any CPU" />
     </Project>
   </Folder>
 </Solution>
